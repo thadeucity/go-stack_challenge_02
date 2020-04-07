@@ -75,7 +75,6 @@ To pass the challenge the project:
 
 - **`should not be able to like a repository that does not exist`**: 
 
-## :memo: License
 
 ## :memo: License
 
