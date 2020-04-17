@@ -26,9 +26,43 @@ This was the second challenge for the Go-Stack Bootcamp. It involved the creatio
 
 Click [HERE](https://github.com/Rocketseat/bootcamp-gostack-desafios/tree/master/desafio-conceitos-nodejs) to see the full challenge page (PT-BR).
 
+### Improvements
+
+Besides the original requests for the challenge I built a new App Route to receive the same input data but this time filtering the url and using it to gather more information about the Repository using the Github API.
+
 ### App Routes
 
-- **`POST /repositories`**: Should receive `title`, `url` e `techs` inside the request.body and create an object following: 
+- **`(bonus) POST /git_repositories`**: Receive `title`, `url` and `techs` inside the request.body uses the Github API to gather more info and create an object as listed bellow:
+```js
+  { 
+    id: uuid(),
+    title: 'Desafio Node.js',
+    url: 'http://github.com/...',
+    techs: ["Node.js", "Javascript", "Axios"],
+    likes: 0,
+    git_title: 'Node.js Challenge 1',
+    git_description: 'Exercise to measure the basic knowledge in Node.js',
+    git_techs: ["JavaScript"],
+    git_owner: {
+      name: "thadeucity",
+      avatar: "//avatarurl//",
+      url: "https://github.com/thadeucity"
+    }
+
+  };
+
+  // Universally unique identifier,
+  // Text Title
+  // Github URL
+  // Techs as an Array
+  // Likes starting at 0
+  // Repository Name (Github API)
+  // Repository Description (Github API)
+  // Repository languages (Github API)
+  // Repository Owner Info (Github API)
+```
+
+- **`POST /repositories`**: Should receive `title`, `url` and `techs` inside the request.body and create an object following: 
 ```js
   { 
     id: uuid(),
